@@ -1,2 +1,8 @@
-# bookbridge
-This is my profile web site.
+```txt
+npm install
+npm run dev
+```
+
+```txt
+npm run deploy
+```
