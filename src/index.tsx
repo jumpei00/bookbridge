@@ -1,12 +1,15 @@
-import { Hono } from 'hono'
-import { renderer } from './renderer'
+import { Hono } from "hono";
+import { renderer } from "./renderer";
+import home from "./api/home";
+import profile from "./api/profile";
+import study from "./api/study";
 
-const app = new Hono()
+const app = new Hono();
 
-app.use(renderer)
+app.use(renderer);
 
-app.get('/', (c) => {
-  return c.render(<h1>Hello!</h1>)
-})
+app.route("/", home);
+app.route("/profile", profile);
+app.route("/study", study);
 
-export default app
+export default app;
