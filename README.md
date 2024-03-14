@@ -1,8 +1,2 @@
-```txt
-npm install
-npm run dev
-```
-
-```txt
-npm run deploy
-```
+### Motohashi tech
+This is running on Cloudflare Pages.
