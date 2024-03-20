@@ -1,6 +1,7 @@
 import type { FC } from "hono/jsx";
 import {
   career,
+  careerTeble,
   certification,
   profile,
   profileBasic,
@@ -54,7 +55,7 @@ export const Profile: FC = () => {
       </div>
       <div class={career}>
         <h2>Career & Educational Background</h2>
-        <table>
+        <table class={careerTeble}>
           <tr>
             <td>2022/4 ~</td>
             <td>

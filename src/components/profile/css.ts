@@ -36,6 +36,10 @@ export const career = css`
   }
 `;
 
+export const careerTeble = css`
+  text-align: left;
+`;
+
 export const skills = css`
   text-align: center;
   margin-top: 48px;
