@@ -4,7 +4,7 @@ import { article, body } from "./css";
 interface Props {
   title: string;
   body: string;
-  created_at: Date;
+  created_at: string;
 }
 
 export const Article: FC<Props> = (props: Props) => {

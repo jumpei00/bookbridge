@@ -7,6 +7,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.get("/articles", async (c) => {
   const page = parseInt(c.req.query("page") || "1", 10);
+
   if (isNaN(page)) {
     c.redirect("/");
     return;
@@ -18,6 +19,7 @@ app.get("/articles", async (c) => {
   const countRes = await c.env.DB.prepare(
     "SELECT COUNT(*) as count FROM articles"
   ).first<{ count: number }>();
+
   if (!countRes) {
     c.render(<div>No articles</div>);
     return;
@@ -29,10 +31,10 @@ app.get("/articles", async (c) => {
   };
 
   const dataRes = await c.env.DB.prepare(
-    "SELECT id, title, created_at FROM articles ORDER BY id DESC LIMIT ? OFFSET ?"
+    "SELECT id, title, strftime('%Y年%m月%d日 %H時%M分', created_at, '+9 hours') AS created_at FROM articles ORDER BY id DESC LIMIT ? OFFSET ?"
   )
     .bind(perPage, offset)
-    .all<{ id: number; title: string; created_at: Date }>();
+    .all<{ id: number; title: string; created_at: string }>();
 
   return c.render(
     <Blog page={page} isLastPage={isLastPage()} headlines={dataRes.results} />
@@ -43,10 +45,10 @@ app.get("/articles/:id{[1-9]+}", async (c) => {
   const id = parseInt(c.req.param("id"), 10);
 
   const res = await c.env.DB.prepare(
-    "SELECT title, body, created_at FROM articles WHERE id = ?"
+    "SELECT title, body, strftime('%Y年%m月%d日 %H時%M分', created_at, '+9 hours') AS created_at FROM articles WHERE id = ?"
   )
     .bind(id)
-    .first<{ title: string; body: string; created_at: Date }>();
+    .first<{ title: string; body: string; created_at: string }>();
 
   if (!res) {
     c.render(<div>Not found</div>);

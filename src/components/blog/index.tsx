@@ -4,7 +4,7 @@ import { headline, blogTitle, pagination } from "./css";
 export interface Props {
   page: number;
   isLastPage: boolean;
-  headlines: { id: number; title: string; created_at: Date }[];
+  headlines: { id: number; title: string; created_at: string }[];
 }
 
 export const Blog: FC<Props> = (props: Props) => {
