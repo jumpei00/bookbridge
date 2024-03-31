@@ -8,10 +8,12 @@ export const profile = css`
 export const profileBasic = css`
   display: flex;
   justify-content: center;
+
   img {
     width: 10%;
     margin-right: 8px;
   }
+
   table {
     border-collapse: separate;
     border-spacing: 4px;
@@ -29,6 +31,7 @@ export const profileIntroduction = css`
 export const career = css`
   text-align: center;
   margin-top: 48px;
+
   table {
     margin: 0 auto;
     border-collapse: separate;
@@ -43,6 +46,7 @@ export const careerTeble = css`
 export const skills = css`
   text-align: center;
   margin-top: 48px;
+
   table {
     margin: 0 auto;
     border-collapse: separate;
@@ -53,6 +57,7 @@ export const skills = css`
 export const certification = css`
   text-align: center;
   margin-top: 48px;
+
   table {
     margin: 0 auto;
     border-collapse: separate;
