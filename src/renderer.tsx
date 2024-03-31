@@ -11,7 +11,7 @@ export const renderer = jsxRenderer(({ children }) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <title>Mototech</title>
+        <title>BookBridge</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link
           rel="preconnect"
@@ -28,7 +28,7 @@ export const renderer = jsxRenderer(({ children }) => {
       </head>
       <body>
         <header class={header}>
-          <h2>Mototech</h2>
+          <h2>BookBridge Tech</h2>
           <nav>
             <a href="/">Home</a>
             <a href="/profile">Profile</a>
