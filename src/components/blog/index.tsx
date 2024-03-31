@@ -4,7 +4,7 @@ import { headline, blogTitle, pagination } from "./css";
 export interface Props {
   page: number;
   isLastPage: boolean;
-  headlines: { id: number; title: string; created_at: string }[];
+  headlines: { id: number; title: string; createdAt: string }[];
 }
 
 export const Blog: FC<Props> = (props: Props) => {
@@ -15,7 +15,7 @@ export const Blog: FC<Props> = (props: Props) => {
         return (
           <>
             <div class={headline}>
-              <div>{h.created_at}</div>
+              <div>{h.createdAt}</div>
               <a href={`/blog/articles/${h.id}`}>{h.title}</a>
             </div>
           </>

@@ -31,10 +31,10 @@ app.get("/articles", async (c) => {
   };
 
   const dataRes = await c.env.DB.prepare(
-    "SELECT id, title, strftime('%Y年%m月%d日 %H時%M分', created_at, '+9 hours') AS created_at FROM articles ORDER BY id DESC LIMIT ? OFFSET ?"
+    "SELECT id, title, strftime('%Y年%m月%d日 %H時%M分', created_at, '+9 hours') AS createdAt FROM articles ORDER BY id DESC LIMIT ? OFFSET ?"
   )
     .bind(perPage, offset)
-    .all<{ id: number; title: string; created_at: string }>();
+    .all<{ id: number; title: string; createdAt: string }>();
 
   return c.render(
     <Blog page={page} isLastPage={isLastPage()} headlines={dataRes.results} />
@@ -45,10 +45,10 @@ app.get("/articles/:id{[1-9]+}", async (c) => {
   const id = parseInt(c.req.param("id"), 10);
 
   const res = await c.env.DB.prepare(
-    "SELECT title, body, strftime('%Y年%m月%d日 %H時%M分', created_at, '+9 hours') AS created_at FROM articles WHERE id = ?"
+    "SELECT title, body, strftime('%Y年%m月%d日 %H時%M分', created_at, '+9 hours') AS createdAt FROM articles WHERE id = ?"
   )
     .bind(id)
-    .first<{ title: string; body: string; created_at: string }>();
+    .first<{ title: string; body: string; createdAt: string }>();
 
   if (!res) {
     c.render(<div>Not found</div>);
@@ -56,7 +56,7 @@ app.get("/articles/:id{[1-9]+}", async (c) => {
   }
 
   return c.render(
-    <Article title={res.title} body={res.body} created_at={res.created_at} />
+    <Article title={res.title} body={res.body} createdAt={res.createdAt} />
   );
 });
 

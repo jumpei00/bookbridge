@@ -1,10 +1,10 @@
 import { FC } from "hono/jsx";
-import { article, body } from "./css";
+import { article } from "./css";
 
 interface Props {
   title: string;
   body: string;
-  created_at: string;
+  createdAt: string;
 }
 
 export const Article: FC<Props> = (props: Props) => {
@@ -12,8 +12,8 @@ export const Article: FC<Props> = (props: Props) => {
     <>
       <article class={article}>
         <h2>{props.title}</h2>
-        <p>{props.created_at}</p>
-        <div class={body}>{props.body}</div>
+        <p>{props.createdAt}</p>
+        <div>{props.body}</div>
       </article>
     </>
   );
