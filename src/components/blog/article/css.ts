@@ -1,7 +1,13 @@
 import { css } from "hono/css";
 
 export const article = css`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  article {
+    width: 40%;
+  }
 
   div {
     white-space: pre-wrap;

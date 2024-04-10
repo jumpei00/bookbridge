@@ -10,11 +10,13 @@ interface Props {
 export const Article: FC<Props> = (props: Props) => {
   return (
     <>
-      <article class={article}>
-        <h2>{props.title}</h2>
-        <p>{props.createdAt}</p>
-        <div>{props.body}</div>
-      </article>
+      <div class={article}>
+        <article>
+          <h2>{props.title}</h2>
+          <p>{props.createdAt}</p>
+          <div>{props.body}</div>
+        </article>
+      </div>
     </>
   );
 };
